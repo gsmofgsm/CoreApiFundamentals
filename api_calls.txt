@@ -5,3 +5,6 @@
 GET http://localhost:6600/api/values - removed
 
 GET http://localhost:6600/api/camps
+GET http://localhost:6600/api/camps?includeTalks=true
+
+GET http://localhost:6600/api/camps/ATL2018
