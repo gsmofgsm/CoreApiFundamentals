@@ -16,9 +16,10 @@ namespace CoreCodeCamp.Controllers
         // [Route("api/[controller]")], then the placeholder will take what is in the class name and before 'controller'
 
         // base class ControllerBase is specific for api's
-        public object Get()
+        public IActionResult Get()
         {
-            return new { Moniker = "ATL2018", Name = "Atlanta Code Camp" }; // anonymous type
+            if (false) return BadRequest("Bad stuff happens");
+            return Ok(new { Moniker = "ATL2018", Name = "Atlanta Code Camp" }); // anonymous type
         }
     }
 }
