@@ -87,12 +87,19 @@ namespace CoreCodeCamp.Controllers
             try
             {
                 // create a new camp
-                return Ok();
+                var camp = _mapper.Map<Camp>(model);
+                _repository.Add(camp);
+                if (await _repository.SaveChangesAsync())
+                {
+                    return Created($"/api/camps/{camp.Moniker}", _mapper.Map<CampModel>(camp));  // this returns in the response header - Location: /api/camps/SD2018
+                }
             } 
             catch (Exception)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
+
+            return BadRequest();
         }
     }
 }
