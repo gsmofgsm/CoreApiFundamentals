@@ -3,6 +3,7 @@ using CoreCodeCamp.Data;
 using CoreCodeCamp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace CoreCodeCamp.Controllers
     {
         private readonly ICampRepository _repository;
         private readonly IMapper _mapper;
+        private readonly LinkGenerator _linkGenerator;
 
         // Attribute for controller CampsController:
         // it could be[Route("api/camps")],
@@ -25,10 +27,11 @@ namespace CoreCodeCamp.Controllers
 
         // base class ControllerBase is specific for api's
 
-        public CampsController(ICampRepository repository, IMapper mapper)
+        public CampsController(ICampRepository repository, IMapper mapper, LinkGenerator linkGenerator)
         {
             _repository = repository;
             _mapper = mapper;
+            _linkGenerator = linkGenerator;
         }
 
         // the action, the method in the controller class
@@ -86,6 +89,17 @@ namespace CoreCodeCamp.Controllers
         {
             try
             {
+                var location = _linkGenerator.GetPathByAction(
+                    "Get",  // action name
+                    "Camps",  // controller name, but we do not need "Controller"
+                    new { moniker = model.Moniker}
+                    );
+
+                if (string.IsNullOrWhiteSpace(location))
+                {
+                    return BadRequest("Could not use current moniker");
+                }
+
                 // create a new camp
                 var camp = _mapper.Map<Camp>(model);
                 _repository.Add(camp);
