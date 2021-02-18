@@ -1,1 +1,7 @@
-GET http://localhost:6600/api/values
+# select the action with url
+# press ctrl + alt + R to run
+# the extension we are using is REST Client from Huachao Mao
+
+GET http://localhost:6600/api/values - removed
+
+GET http://localhost:6600/api/camps
