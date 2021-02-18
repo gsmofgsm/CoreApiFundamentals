@@ -12,3 +12,10 @@ GET http://localhost:6600/api/camps/ATL2018
 GET http://localhost:6600/api/camps/search?theDate=2018-10-18
 GET http://localhost:6600/api/camps/search?theDate=2018-10-17
 GET http://localhost:6600/api/camps/search   // this did not go to [HttpGet("{moniker}")]
+
+POST http://localhost:6600/api/camps HTTP/1.1
+Content-Type: application/json
+{
+    "Name": "San Diego Code Camp",
+    "Moniker": "SD2018"
+}
