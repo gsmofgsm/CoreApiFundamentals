@@ -33,7 +33,7 @@ namespace CoreCodeCamp.Controllers
         // the action, the method in the controller class
         // is the actual endpoint
         [HttpGet]
-        public async Task<IActionResult> GetCamps()
+        public async Task<ActionResult<CampModel[]>> GetCamps()
         {
             try
             {
@@ -41,7 +41,7 @@ namespace CoreCodeCamp.Controllers
 
                 CampModel[] models = _mapper.Map<CampModel[]>(results) ;
 
-                return Ok(models);
+                return models; // if the type match, status Ok will be returned for us
             }
             catch (Exception)
             {
