@@ -8,3 +8,7 @@ GET http://localhost:6600/api/camps
 GET http://localhost:6600/api/camps?includeTalks=true
 
 GET http://localhost:6600/api/camps/ATL2018
+
+GET http://localhost:6600/api/camps/search?theDate=2018-10-18
+GET http://localhost:6600/api/camps/search?theDate=2018-10-17
+GET http://localhost:6600/api/camps/search   // this did not go to [HttpGet("{moniker}")]
