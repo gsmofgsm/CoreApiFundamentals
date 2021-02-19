@@ -65,3 +65,15 @@ DELETE http://localhost:6600/api/camps/SD2018
 GET http://localhost:6600/api/camps/ATL2018/talks
 
 GET http://localhost:6600/api/camps/ATL2018/talks/1
+
+POST http://localhost:6600/api/camps/ATL2018/talks
+Content-Type: application/json
+
+{
+  "title": "Building APIs",
+  "abstract": "Building APIs can be fun",
+  "level": 300,
+  "speaker": {
+      "speakerId": 1
+  }
+}
