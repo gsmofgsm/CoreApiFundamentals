@@ -36,3 +36,26 @@ Content-Type: application/json
 {
     "name": "San Diego Code Camp"
 }
+
+// PUT is changing all of the members
+// if nothing changed, seems like we get BadRequest
+PUT http://localhost:6600/api/camps/SD2018
+Content-Type: application/json
+
+{
+  "name": "San Diego Code Camp",
+  "moniker": "SD2018",
+  "eventDate": "0001-01-01T00:00:00",
+  "length": 13,
+  "venue": "SD Community Colledg 2e",
+  "locationAddress1": "123 Main Street",
+  "locationAddress2": null,
+  "locationAddress3": null,
+  "locationCityTown": "San Diego",
+  "locationStateProvince": "CA",
+  "locationPostalCode": "98765",
+  "locationCountry": "USA",
+  "talks": []
+}
+
+GET http://localhost:6600/api/camps/SD2018
