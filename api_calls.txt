@@ -4,6 +4,8 @@
 
 GET http://localhost:6600/api/values - removed
 
+#### camps ####
+
 GET http://localhost:6600/api/camps
 GET http://localhost:6600/api/camps?includeTalks=true
 
@@ -62,6 +64,8 @@ GET http://localhost:6600/api/camps/SD2018
 
 DELETE http://localhost:6600/api/camps/SD2018
 
+#### talks ####
+
 GET http://localhost:6600/api/camps/ATL2018/talks
 
 GET http://localhost:6600/api/camps/ATL2018/talks/1
@@ -70,8 +74,8 @@ POST http://localhost:6600/api/camps/ATL2018/talks
 Content-Type: application/json
 
 {
-  "title": "Building APIs",
-  "abstract": "Building APIs can be fun",
+  "title": "Building APIs advanced",
+  "abstract": "Building APIs can be very fun",
   "level": 300,
   "speaker": {
       "speakerId": 1
