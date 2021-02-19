@@ -15,7 +15,24 @@ GET http://localhost:6600/api/camps/search   // this did not go to [HttpGet("{mo
 
 POST http://localhost:6600/api/camps HTTP/1.1
 Content-Type: application/json
+
 {
-    "Name": "San Diego Code Camp",
-    "Moniker": "SD2018"
+    "name": "San Diego Code Camp",
+    "moniker": "SD2018"
+}
+
+# validation name required
+POST http://localhost:6600/api/camps HTTP/1.1
+Content-Type: application/json
+
+{
+    "moniker": "SD2018"
+}
+
+# validation moniker required
+POST http://localhost:6600/api/camps HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "San Diego Code Camp"
 }
