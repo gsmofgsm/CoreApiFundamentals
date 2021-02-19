@@ -81,3 +81,15 @@ Content-Type: application/json
       "speakerId": 1
   }
 }
+
+POST http://localhost:6600/api/camps/ATL2018/talks
+Content-Type: application/json
+
+{
+  "title": "Building APIs advanced",
+  "abstract": "Building ",
+  "level": 300,
+  "speaker": {
+      "speakerId": 1
+  }
+}
