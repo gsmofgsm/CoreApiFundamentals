@@ -63,3 +63,5 @@ GET http://localhost:6600/api/camps/SD2018
 DELETE http://localhost:6600/api/camps/SD2018
 
 GET http://localhost:6600/api/camps/ATL2018/talks
+
+GET http://localhost:6600/api/camps/ATL2018/talks/1
