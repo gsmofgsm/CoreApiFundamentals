@@ -116,3 +116,5 @@ Content-Type: application/json
     "speakerId": 2
   }
 }
+
+DELETE http://localhost:6600/api/camps/ATL2018/talks/3
