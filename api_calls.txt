@@ -11,6 +11,8 @@ GET http://localhost:6600/api/camps?api-version=2.0
 GET http://localhost:6600/api/camps?ver=2.0
 GET http://localhost:6600/api/camps
 X-Version: 1.0
+GET http://localhost:6600/api/v1/camps
+GET http://localhost:6600/api/v2/camps
 
 GET http://localhost:6600/api/camps?includeTalks=true&api-version=1.0
 GET http://localhost:6600/api/camps?includeTalks=true&api-version=1.1

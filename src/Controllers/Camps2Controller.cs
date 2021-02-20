@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CoreCodeCamp.Controllers
 {
-    [Route("api/[controller]")] // I didn't need to change the uri to "api/camps", the controller name works!
+    [Route("api/v{version:apiVersion}/[controller]")] // I didn't need to change the uri to "api/camps", the controller name works!
     [ApiVersion("2.0")]
     [ApiController]
     public class Camps2Controller : ControllerBase
