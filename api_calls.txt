@@ -6,7 +6,12 @@ GET http://localhost:6600/api/values - removed
 
 #### camps ####
 
+GET http://localhost:6600/api/camps
 GET http://localhost:6600/api/camps?api-version=2.0
+GET http://localhost:6600/api/camps?ver=2.0
+GET http://localhost:6600/api/camps
+X-Version: 1.0
+
 GET http://localhost:6600/api/camps?includeTalks=true&api-version=1.0
 GET http://localhost:6600/api/camps?includeTalks=true&api-version=1.1
 
