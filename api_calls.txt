@@ -118,3 +118,7 @@ Content-Type: application/json
 }
 
 DELETE http://localhost:6600/api/camps/ATL2018/talks/3
+
+### Functional ###
+
+OPTIONS http://localhost:6600/api/opterations/reloadconfig
