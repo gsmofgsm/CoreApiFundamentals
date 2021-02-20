@@ -90,5 +90,42 @@ namespace CoreCodeCamp.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to get Talks");
             }
         }
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<TalkModel>> Put(string moniker, int id, TalkModel model)
+        {
+            try
+            {
+                var talk = await _repository.GetTalkByMonikerAsync(moniker, id, true);
+                if (talk == null) return NotFound("Couldn't find the talk");
+
+                _mapper.Map(model, talk);
+
+                // we do explict mapping after the auto-mapping, 
+                // where mapping of Speaker from talkModel to talk is ignored in CampProfile
+                // when there is an speaker in the model, and it does exist
+                if (model.Speaker != null)
+                {
+                    var speaker = await _repository.GetSpeakerAsync(model.Speaker.SpeakerId);
+                    if (speaker != null)
+                    {
+                        talk.Speaker = speaker;
+                    }
+                }
+
+                if (await _repository.SaveChangesAsync())
+                {
+                    return _mapper.Map<TalkModel>(talk);
+                }
+                else
+                {
+                    return BadRequest("Failed to update database");
+                }
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to get Talks");
+            }
+        }
     }
 }

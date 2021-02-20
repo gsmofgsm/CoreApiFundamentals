@@ -93,3 +93,26 @@ Content-Type: application/json
       "speakerId": 1
   }
 }
+
+PUT http://localhost:6600/api/camps/ATL2018/talks/3
+Content-Type: application/json
+
+{
+  "talkId": 3,
+  "title": "Building APIs advanced",
+  "abstract": "Building Bla bla bla which add up to 20 characters",
+  "level": 100
+}
+
+PUT http://localhost:6600/api/camps/ATL2018/talks/3
+Content-Type: application/json
+
+{
+  "talkId": 3,
+  "title": "Building APIs advanced",
+  "abstract": "Building Bla bla bla which add up to 20 characters",
+  "level": 100,
+  "speaker": {
+    "speakerId": 2
+  }
+}
