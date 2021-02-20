@@ -24,6 +24,15 @@ namespace CoreCodeCamp
 
       services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
+      // services.AddApiVersioning(); // this will allow using default versioning, ie. only 1.0
+      services.AddApiVersioning(opt =>
+      {
+          opt.AssumeDefaultVersionWhenUnspecified = true;
+          opt.DefaultApiVersion = new ApiVersion(1, 1); // now the version is 1.1
+          opt.ReportApiVersions = true; // report api-supported-versions in response header
+      });
+      
+
       services.AddControllers();
     }
 
